@@ -11,6 +11,7 @@ namespace NLogExercise
         //{
         //    ConfigureNLog();
         //}
+        private static bool configured = false;
 
         public static void ConfigureNLog(params string[] businessName)
         {
@@ -20,6 +21,7 @@ namespace NLogExercise
             {
                 AddBusinessTarget(config, item);
             }
+            configured = businessName.Any();
 
             LogManager.Configuration = config;
         }
@@ -48,19 +50,33 @@ namespace NLogExercise
             config.AddRule(LogLevel.Trace, LogLevel.Fatal, asyncTarget, $"MyLog.{businessName}");
         }
 
-        public static void Info(string businessName, string message)
+        private static Logger GetLoggerInternal(string businessName)
         {
-            LogManager.GetLogger($"MyLog.{businessName}").Info(message);
+            if (!configured)
+            {
+                throw new Exception("请先调用 MyLog.ConfigureNLog()");
+            }
+            return LogManager.GetLogger($"MyLog.{businessName}");
         }
 
-        public static void Error(string businessName, string message)
+        public static void Trace(string businessName, string message, params object[] args)
         {
-            LogManager.GetLogger($"MyLog.{businessName}").Error(message);
+            GetLoggerInternal(businessName).Trace(message, args);
         }
 
-        public static void Error(string businessName, Exception ex, string message)
+        public static void Info(string businessName, string message, params object[] args)
         {
-            LogManager.GetLogger($"MyLog.{businessName}").Error(ex, message ?? ex.Message);
+            GetLoggerInternal(businessName).Info(message, args);
+        }
+
+        public static void Error(string businessName, string message, params object[] args)
+        {
+            GetLoggerInternal(businessName).Error(message, args);
+        }
+
+        public static void Error(string businessName, Exception ex, string message, params object[] args)
+        {
+            GetLoggerInternal(businessName).Error(ex, message ?? ex.Message, args);
         }
     }
 }

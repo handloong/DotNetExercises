@@ -15,4 +15,8 @@
     <PackageReference Include="MethodTimer.Fody" Version="3.2.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NLogExercise\NLogExercise.csproj" />
+  </ItemGroup>
+
 </Project>
