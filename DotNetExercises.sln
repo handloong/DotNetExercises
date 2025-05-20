@@ -53,6 +53,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkerServiceSetupExercise"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUJIFilterExercise", "FUJIFilterExercise\FUJIFilterExercise.csproj", "{52B392F3-5A5B-4E3F-85B5-764695C45EB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightTestsExercise", "PlaywrightTestsExercise\PlaywrightTestsExercise.csproj", "{78555FA5-C071-F67F-0DA8-D873627371F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -457,6 +459,22 @@ Global
 		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x64.Build.0 = Release|Any CPU
 		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x86.ActiveCfg = Release|Any CPU
 		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x86.Build.0 = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|ARM64.Build.0 = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|x64.Build.0 = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{78555FA5-C071-F67F-0DA8-D873627371F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
