@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerServiceExercise", "Wo
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkerServiceSetupExercise", "WorkerServiceSetupExercise\WorkerServiceSetupExercise.vdproj", "{8D40EF8E-F534-0C73-452E-9900975FD380}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUJIFilterExercise", "FUJIFilterExercise\FUJIFilterExercise.csproj", "{52B392F3-5A5B-4E3F-85B5-764695C45EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -439,6 +441,22 @@ Global
 		{8D40EF8E-F534-0C73-452E-9900975FD380}.Release|ARM64.ActiveCfg = Release
 		{8D40EF8E-F534-0C73-452E-9900975FD380}.Release|x64.ActiveCfg = Release
 		{8D40EF8E-F534-0C73-452E-9900975FD380}.Release|x86.ActiveCfg = Release
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|x64.Build.0 = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Debug|x86.Build.0 = Debug|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|ARM64.Build.0 = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x64.ActiveCfg = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x64.Build.0 = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x86.ActiveCfg = Release|Any CPU
+		{52B392F3-5A5B-4E3F-85B5-764695C45EB6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

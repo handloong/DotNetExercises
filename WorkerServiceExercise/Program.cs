@@ -1,56 +1,47 @@
-using CliWrap;
+using System.Net.Sockets;
+using System.Net;
 
-namespace WorkerServiceExercise
+using (TcpListener listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8001))
 {
-    public class Program
+    try
     {
-        public static async Task Main(string[] args)
+        // 启动监听
+        listener.Start();
+        Console.WriteLine("Socket Created and Listening");
+        while (true)
         {
-            const string ServiceName = ".NET Joke Service";
-
-            if (args is { Length: 1 })
+            // 等待客户端连接
+            using (TcpClient client = listener.AcceptTcpClient())
             {
-                try
+                NetworkStream stream = client.GetStream();
+                byte[] buffer = new byte[1024];
+                // 设置超时时间
+                client.ReceiveTimeout = 10000;
+                while (true)
                 {
-                    string executablePath =
-                        Path.Combine(AppContext.BaseDirectory, "WorkerServiceExercise.exe");
-
-                    if (args[0] is "/Install")
+                    // 接收数据
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    if (bytesRead == 0)
                     {
-                        await Cli.Wrap("sc")
-                            .WithArguments(new[] { "create", ServiceName, $"binPath={executablePath}", "start=auto" })
-                            .ExecuteAsync();
+                        Console.WriteLine("Exit Server");
+                        break;
                     }
-                    else if (args[0] is "/Uninstall")
-                    {
-                        await Cli.Wrap("sc")
-                            .WithArguments(new[] { "stop", ServiceName })
-                            .ExecuteAsync();
-
-                        await Cli.Wrap("sc")
-                            .WithArguments(new[] { "delete", ServiceName })
-                            .ExecuteAsync();
-                    }
+                    string data = System.Text.Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine($"Get value {data}");
+                    // 返回数据
+                    byte[] responseData = System.Text.Encoding.UTF8.GetBytes("OK");
+                    stream.Write(responseData, 0, responseData.Length);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-
-                return;
             }
-
-            var builder = Host.CreateApplicationBuilder(args);
-
-            builder.Services.AddWindowsService(options =>
-            {
-                options.ServiceName = ".NET Joke Service";
-            });
-
-            builder.Services.AddHostedService<Worker>();
-
-            var host = builder.Build();
-            host.Run();
         }
+    }
+    catch (SocketException e)
+    {
+        Console.WriteLine($"Bind Failed... {e.Message}");
+    }
+    finally
+    {
+        // 停止监听
+        listener.Stop();
     }
 }
