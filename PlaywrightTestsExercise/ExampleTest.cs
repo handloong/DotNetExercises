@@ -43,19 +43,19 @@ namespace PlaywrightTestsExercise
             // Pause the page, and start recording manually.
             var page = await context.NewPageAsync();
 
-            await page.GotoAsync("http://baidu.com");
-            //await page.GotoAsync("http://10.61.131.106/login");
+            //await page.GotoAsync("http://baidu.com");
+            await page.GotoAsync("http://10.61.131.106/login");
 
 
-            await page.FillAsync("//*[@id=\"kw\"]", "你好");
-            await page.ClickAsync("//*[@id=\"su\"]");
+            //await page.FillAsync("//*[@id=\"kw\"]", "你好");
+            //await page.ClickAsync("//*[@id=\"su\"]");
 
-            
-            //await page.FillAsync("//*[@id=\"form_item_account\"]", "superAdmin");
 
-            //await page.FillAsync("//*[@id=\"form_item_password\"]", "P@ssw0rddzz");
+            await page.FillAsync("//*[@id=\"form_item_account\"]", "superAdmin");
 
-            //await page.ClickAsync("//button[@class='ant-btn ant-btn-primary ant-btn-lg login-button w-full']");
+            await page.FillAsync("//*[@id=\"form_item_password\"]", "P@ssw0rddzz");
+
+            await page.ClickAsync("//button[@class='ant-btn ant-btn-primary ant-btn-lg login-button w-full']");
             await page.PauseAsync();
         }
     }
