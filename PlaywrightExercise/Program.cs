@@ -16,38 +16,45 @@ await Svg2Png(browser, page);
 
 async Task Svg2PngUseJs(IBrowser browser, IPage page)
 {
-    var svg = File.ReadAllText(@"C:\Users\Administrator\Desktop\svg\500.svg");
+    var svg = File.ReadAllText(@"C:\Users\Administrator\Desktop\svg\5000.svg");
 
     Log("设置svg数据");
 
     await page.SetContentAsync(svg);
 
     // 获取 SVG 的 outerHTML
-    string svgContent = await page.EvalOnSelectorAsync<string>(
-        "svg", "el => el.outerHTML"
-    );
+    //string svgContent = await page.EvalOnSelectorAsync<string>(
+    //    "svg", "el => el.outerHTML"
+    //);
 
     var js = @"
-        (svgText) => {{
-            return new Promise((resolve) => {{
-                const svgBlob = new Blob([svgText], {{type: 'image/svg+xml'}});
-                const url = URL.createObjectURL(svgBlob);
-                const img = new Image();
-                img.onload = function () {{
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
-                    URL.revokeObjectURL(url);
-                    resolve(canvas.toDataURL('image/png').split(',')[1]);  // 仅返回 base64 内容
-                }};
-                img.src = url;
-            }});
-        }}
-        ";
 
-    var data_url = await page.EvaluateAsync<string>(js, svgContent);
+        (svgText) => {
+        return new Promise((resolve) => {
+            const svgBlob = new Blob([svgText], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(svgBlob);
+            const img = new Image();
+            img.onload = function () {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                URL.revokeObjectURL(url);
+                const base64 = canvas.toDataURL('image/png').split(',')[1];
+                resolve(base64);
+            };
+            img.src = url;
+        });
+    }
+        ";
+    Log("执行js代码");
+    var base64Png = await page.EvaluateAsync<string>(js, svg);
+    Log("执行js代码结束");
+
+    byte[] pngBytes = Convert.FromBase64String(base64Png);
+    await File.WriteAllBytesAsync("exported_dz_svg.png", pngBytes);
+    Log("写入OK");
 
     Log("截图");
     await page.ScreenshotAsync(new PageScreenshotOptions
