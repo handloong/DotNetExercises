@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CMM_NET_Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\CMM_NET_Converters.dll</HintPath>
+    </Reference>
     <Reference Include="ConsoleDump, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConsoleDump.0.7.0\lib\net45\ConsoleDump.dll</HintPath>
     </Reference>
@@ -70,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DieAlignmentData.cs" />
     <Compile Include="IReadFileService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
