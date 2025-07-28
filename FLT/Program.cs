@@ -91,6 +91,7 @@ namespace FLT
                     SSurfaceRes item = (SSurfaceRes)Marshal.PtrToStructure(gCHandle.AddrOfPinnedObject(), typeof(SSurfaceRes));
                     ssurfaceDatas.Add(item);
                 }
+                gCHandle.Free();
             }
 
             return ssurfaceDatas;

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB2EC84B-30FF-41CE-B4C6-690181FD959B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FLT_Demo</RootNamespace>
+    <AssemblyName>FLT_Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Camtek.Clustering.IniFileReaderWrapper">
+      <HintPath>Lib\Camtek.Clustering.IniFileReaderWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CMM_NET_Converters">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\CMM_NET_Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="CoordinateSystems">
+      <HintPath>Lib\CoordinateSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAccess">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Job.NET">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\Job.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="JobPS.Interop">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\JobPS.Interop.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="ProgressBar">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\ProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemTypesPS.Interop">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\SystemTypesPS.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WaferInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\x64\WaferInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="WaferInfo.Common">
+      <HintPath>..\..\A祝斌分享\Camtek\Camtek RS-bin\x64\WaferInfo.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PostProcessing.DefectsClustering\DefectsClusteringExtensions.cs" />
+    <Compile Include="PostProcessing.DefectsClustering\DefectsClusteringPostProcessingObject.cs" />
+    <Compile Include="PostProcessing.DefectsClustering\DefectsClusteringPostProcessor.cs" />
+    <Compile Include="PostProcessing.DefectsClustering\IDefectsClusteringPostProcessingEventsObject.cs" />
+    <Compile Include="PostProcessing.DefectsClustering\IDefectsClusteringPostProcessingObject.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
